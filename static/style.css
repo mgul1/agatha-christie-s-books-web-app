@@ -1,0 +1,96 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+#content {
+    background-color: #dfb7bd99;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 1rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin: 0;
+    margin-bottom: 0.3rem;
+}
+
+img {
+    display: flex;
+    margin-bottom: 1.5rem;
+    border: 5px solid #dfb7bd;
+}
+
+#filter {
+    background-color: #dfb7bd;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#filter-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+#filter-content>div {
+    border: 2px solid black;
+    width: 160px;
+    padding: 0.5rem;
+}
+
+#filter-content label:hover {
+    cursor: pointer;
+}
+
+#filter-content input:hover {
+    cursor: pointer;
+}
+
+.btn {
+    padding: 0.5rem 0rem 0rem 0rem;
+}
+
+.btn input {
+    background-color: white;
+    padding: 0.2rem 0.8rem;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    border: 2px solid black;
+}
+
+.btn input:hover {
+    cursor: pointer;
+}
+
+#books {
+    background-color: white;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#books-content {
+    margin: 0.2rem 0rem;
+}
+
+#books-content input {
+    margin: 0;
+    appearance: none;
+}
+
+#books-content label:hover {
+    cursor: pointer;
+}
+
+.highlight {
+    background-color: #499fa493;
+}

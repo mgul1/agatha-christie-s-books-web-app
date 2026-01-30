@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <title>Agatha Christie's Books</title>
+</head>
+<body>
+    <div id="content">
+        <h1>Agatha Christie's Books</h1>
+        <img src="{{url_for('static', filename='index-image.jpg')}}" alt="index-image">
+        <form id="filter" action="/filter" method="POST"> 
+            <div id="filter-content">
+                <div>
+                    <h2>Series</h2>
+                    {% for s in series %}
+                        <div><label><input type="radio" name="series" value="{{s}}">{{s}}</label></div>
+                    {% endfor %}
+                </div>
+                <div>
+                    <h2>Type</h2>
+                    {% for t in type %}
+                        <div><label><input type="radio" name="type" value="{{t}}">{{t}}</label></div>
+                    {% endfor %}
+                </div>
+                <div>
+                    <h2>Reading Status</h2>
+                    <div><label><input type="radio" name="reading status" value="1">Read</label></div>
+                    <div><label><input type="radio" name="reading status" value="0">Not Read</label></div>
+                </div>
+            </div>
+            <div class="btn">
+                <input type="submit" value="Filter">
+            </div>
+        </form>
+        <div id="books">
+            <h2>Books</h2>
+            {% if book == "none" %}
+                <div>Seach for books!</div>
+            {% elif book == "invalid" %}
+                <div>No books found :(</div>
+            {% elif book == "updated" %}
+                <div>Reading status has been updated.</div>
+            {% else %}
+                <form action="/update" method="POST">
+                    {% for b in book %}
+                        {% if b[2] == 1 %}
+                            <div id="books-content"><label class="highlight"><input type="radio" name="book" value="{{b[0]}}">{{b[1]}}</label></div>
+                        {% else %}
+                            <div id="books-content"><label onclick="highlight(this)"><input type="radio" name="book" value="{{b[0]}}">{{b[1]}}</label></div>
+                        {% endif %}
+                    {% endfor %}
+                    <div class="btn">
+                        <input type="submit" value="Update">
+                    </div>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+    <script>
+        function highlight(element) {
+            element.style.backgroundColor = "#499fa493";
+        }
+    </script>
+</body>
+</html>  
